@@ -13,7 +13,7 @@ To interact with the smart contract, you'll need:
 ## Usage
 
 1. Clone this repository to your local machine:
-[https](https://github.com/drinthewizzz23/Functions-and-Errors-Project.git)
+[https](https://github.com/Edwin-MalitII/Functions-and-Errors-Project.git)
 2. Navigate to the project directory:
    cd solidity-assertions
 
