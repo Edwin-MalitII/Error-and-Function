@@ -1,41 +1,41 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+  // SPDX-License-Identifier: MIT
+    pragma solidity ^0.8.0;
 
-contract NumberManager {
-    uint256 public myNumberoffood;
+    contract MalitIIcontract {
+        uint256 public myNumberoffood;
 
-    // Event to log changes in the number
-    event NumberSet(uint256 newValue);
+        // Event to log changes in the number
+        event NumberSet(uint256 newValue);
 
-    // Function to set the number
-    function setNumber(uint256 _num) external {
-        // Call a separate function to validate input
-        validateInput(_num);
-        
-        // Call a separate function to validate internal state
-        validateInternalState(_num);
+        // Function to set the number
+        function setNumber(uint256 _num) external {
+            // Call a separate function to validate input
+            validateInput(_num);
+            
+            // Call a separate function to validate internal state
+            validateInternalState(_num);
 
-        // Set the number
-        myNumberoffood = _num;
+            // Set the number
+            myNumberoffood = _num;
 
-        // Emit an event to log the change
-        emit NumberSet(_num);
-    }
+            // Emit an event to log the change
+            emit NumberSet(_num);
+        }
 
-    // Function to validate input
-    function validateInput(uint256 _num) internal pure {
-        // Using require() to validate input
-        require(_num != 0, "put any number of food in the cart");
+        // Function to validate input
+        function validateInput(uint256 _num) internal pure {
+            // Using require() to validate input
+            require(_num != 0, "put any quantity of food in the cart");
 
-        // Using revert() to revert the transaction
-        if (_num > 100) {
-            revert("large quantity of food cannot be carried");
+            // Using revert() to revert the transaction
+            if (_num > 100) {
+                revert("large quantity of food cannot be carried");
+            }
+        }
+
+        // Function to validate internal state
+        function validateInternalState(uint256 _num) internal view {
+            // Using assert() to validate internal state
+            assert(myNumberoffood + _num > myNumberoffood);
         }
     }
-
-    // Function to validate internal state
-    function validateInternalState(uint256 _num) internal view {
-        // Using assert() to validate internal state
-        assert(myNumberoffood + _num > myNumberoffood);
-    }
-}
